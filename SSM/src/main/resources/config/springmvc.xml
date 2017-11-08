@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+
+	<!-- springmvc只扫描@Controller注解和@ControllerAdvice注解-->  
+    <context:component-scan base-package="com.cn.ssm" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+		<context:include-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+	</context:component-scan>
+	
+  	<!-- springmvc处理静态资源 -->
+  	<!-- 方式一 -->
+  	<!-- mapping：映射 location：本地资源路径，注意必须是webapp根目录下的路径。 两个*，它表示映射resources/下所有的URL，包括子路径（即接多个/） -->
+  	<!-- 配置的location一定要是webapp根目录下才行，如果你将资源目录，放置到webapp/WEB-INF下面的话，则就会访问失败。这个问题常常会犯。 -->
+  	<!-- cache-period可以对资源进行web缓存 -->
+   	<!-- <mvc:resources location="/common/html" mapping="/common/html/**" />  
+   	<mvc:resources location="/common/images" mapping="/images/images/**"  cache-period="31536000"/> -->  
+    <!-- WEB-INF是Java的WEB应用的安全目录。所谓安全就是客户端无法访问，只有服务端可以访问的目录,如果想在页面中直接访问其中的文件，
+    	必须通过web.xml文件对要访问的文件进行相应映射才能访问
+    	但如果这样设置，那还不如将该文件放入webapp下 -->
+    <!-- <mvc:resources location="/WEB-INF/resources/" mapping="/html/**" /> -->
+    
+    <!-- 方式二： 如果根据url找不到对应的handle，将请求交给默认servlet处理器处理找到并返回该资源，如果找不到返回不在-->
+    <!-- 其实只配置<mvc:default-servlet-handler/> 是不够的，还要配置<mvc:annotation-driven></mvc:annotation-driven> -->
+    <mvc:default-servlet-handler /> 
+    
+    <!-- springmvc 对返回的视图路径添加前缀后缀-->  
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">  
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView" />  
+        <property name="prefix" value="/WEB-INF/resources/jsp/" />  <!-- 前缀 -->
+        <property name="suffix" value=".jsp"></property>  <!--后缀 -->
+    </bean>  
+    
+    <!-- spirngmvc 上传文件处理 -->  
+	<bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+	     <property name="maxUploadSize" value="104857600" />
+	     <property name="maxInMemorySize" value="4096" />
+	     <property name="defaultEncoding" value="UTF-8"></property>
+	</bean>
+	
+	<mvc:annotation-driven></mvc:annotation-driven>
+</beans>
