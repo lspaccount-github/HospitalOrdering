@@ -23,6 +23,7 @@ public class UserController {
 		User user = userService.getById(1);
 		int aa = userService.update(user);
 		System.out.println(user.toString());
+		
 		return "userList";
 	}
 }
