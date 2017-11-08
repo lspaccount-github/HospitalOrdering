@@ -1,7 +1,7 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.ssm.cn</groupId>
-  <artifactId>ssm</artifactId>
+  <groupId>com.hospital.cn</groupId>
+  <artifactId>HospitalBuy</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <packaging>war</packaging>
   <!-- 初始化框架的版本号 -->
@@ -258,7 +258,7 @@
         <!-- jfreechart end-->
 	</dependencies>
 	<build>
-    	<finalName>ssm</finalName>
+    	<finalName>HospitalBuy</finalName>
 
 	    <plugins>
 	      <!-- 加入Tomcat插件 -->
