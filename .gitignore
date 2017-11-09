@@ -64,3 +64,16 @@ obj/
 [Rr]elease*/
 _ReSharper*/
 [Tt]est[Rr]esult*
+HospitalBuy/target/m2e-wtp/web-resources/META-INF/maven/com.hospital.cn/HospitalBuy/pom.xml
+HospitalBuy/target/classes/applicationContext.xml
+HospitalBuy/target/classes/config/mybatis-config.xml
+HospitalBuy/target/classes/config/spring-datasource.xml
+HospitalBuy/target/classes/config/spring-job.xml
+HospitalBuy/target/classes/config/springmvc.xml
+HospitalBuy/target/classes/config/spring-mybatis.xml
+HospitalBuy/target/classes/config/spring-transaction.xml
+HospitalBuy/target/classes/mapping/UserDao.xml
+HospitalBuy/target/classes/properties/jdbc.properties
+HospitalBuy/target/classes/properties/log4j.properties
+HospitalBuy/target/m2e-wtp/web-resources/META-INF/MANIFEST.MF
+HospitalBuy/target/m2e-wtp/web-resources/META-INF/maven/com.hospital.cn/HospitalBuy/pom.properties
