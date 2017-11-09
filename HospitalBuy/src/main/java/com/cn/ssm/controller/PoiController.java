@@ -38,6 +38,7 @@ public class PoiController extends BaseController {
     @RequestMapping("/importGoods")
     public void  importGoods(@RequestParam("file") CommonsMultipartFile file,HttpServletResponse response) throws IOException {
     	Map<String,Object> returnMap = new HashMap<String, Object>();
+    	
     	InputStream inputStream = null;
     	Workbook work = null;
     	OutputStream outputStream = null;
